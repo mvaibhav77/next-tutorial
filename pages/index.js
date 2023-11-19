@@ -24,21 +24,10 @@ export default function Home({ articles }) {
 }
 
 // Static Props in NEXT
-// export const getStaticProps = async () => {
-//   const res = await fetch(
-//     "https://jsonplaceholder.typicode.com/todos?_limit=5"
-//   );
-//   const articles = await res.json();
-
-//   return {
-//     props: {
-//       articles,
-//     },
-//   };
-// };
-
 export const getStaticProps = async () => {
-  const res = await fetch(`${server}/api/posts`);
+  const res = await fetch(
+    "https://jsonplaceholder.typicode.com/todos?_limit=5"
+  );
   const articles = await res.json();
 
   return {
@@ -47,3 +36,14 @@ export const getStaticProps = async () => {
     },
   };
 };
+
+// export const getStaticProps = async () => {
+//   const res = await fetch(`/api/posts`);
+//   const articles = await res.json();
+
+//   return {
+//     props: {
+//       articles,
+//     },
+//   };
+// };

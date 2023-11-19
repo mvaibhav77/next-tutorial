@@ -42,40 +42,10 @@ const index = ({ posts }) => {
 
 // static props and path to create dynamic routing
 // for json placeholder
-// export const getStaticProps = async (context) => {
-//   const res = await fetch(
-//     `https://jsonplaceholder.typicode.com/posts/${context.params.id}`
-//   );
-//   const posts = await res.json();
-
-//   return {
-//     props: {
-//       posts,
-//     },
-//   };
-// };
-
-// export const getStaticPaths = async () => {
-//   const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
-//   const posts = await res.json();
-
-//   const ids = posts.map((post) => post.id);
-
-//   const paths = ids.map((id) => ({
-//     params: {
-//       id: id.toString(),
-//     },
-//   }));
-//   return {
-//     // paths: { params: { id: "1", id: "2" } },
-//     paths,
-//     fallback: false,
-//   };
-// };
-
-// from API folder
 export const getStaticProps = async (context) => {
-  const res = await fetch(`${server}/api/posts/${context.params.id}`);
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${context.params.id}`
+  );
   const posts = await res.json();
 
   return {
@@ -86,7 +56,7 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`${server}/api/posts`);
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
   const posts = await res.json();
 
   const ids = posts.map((post) => post.id);
@@ -102,5 +72,35 @@ export const getStaticPaths = async () => {
     fallback: false,
   };
 };
+
+// from API folder
+// export const getStaticProps = async (context) => {
+//   const res = await fetch(`${server}/api/posts/${context.params.id}`);
+//   const posts = await res.json();
+
+//   return {
+//     props: {
+//       posts,
+//     },
+//   };
+// };
+
+// export const getStaticPaths = async () => {
+//   const res = await fetch(`${server}/api/posts`);
+//   const posts = await res.json();
+
+//   const ids = posts.map((post) => post.id);
+
+//   const paths = ids.map((id) => ({
+//     params: {
+//       id: id.toString(),
+//     },
+//   }));
+//   return {
+//     // paths: { params: { id: "1", id: "2" } },
+//     paths,
+//     fallback: false,
+//   };
+// };
 
 export default index;
