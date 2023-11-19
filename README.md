@@ -1,6 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+A small Next.js project. Only for learning basis. Deployed on https://vs-next-tutorial.vercel.app/
 
-## Getting Started
+## Run on your local machine
 
 First, run the development server:
 
